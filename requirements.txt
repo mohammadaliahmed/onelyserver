@@ -1,0 +1,15 @@
+flask
+flask-wtf
+flask-sqlalchemy
+flask-migrate
+flask-login
+flask-mail
+flask-bootstrap
+flask-moment
+flask-httpauth
+flask_socketio
+Flask-FCM
+pyjwt
+python-dotenv
+pymysql
+boto3

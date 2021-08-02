@@ -1,0 +1,13 @@
+Dear {{ user.name }},
+
+Thank you for starting using Onely!
+
+To verify your account, enter this code:
+
+{{ code }}
+
+If you have not created an account simply ignore this message.
+
+Sincerely,
+
+The Onely Team
