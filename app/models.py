@@ -136,7 +136,7 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
         data = {
             'id': self.id,
             'username': self.username,
-            'last_seen': int(float(self.last_seen.strftime('%s.%f'))*1000),
+
             'name': self.name,
             'country': self.country,
             'phone_number': self.phone_number,

@@ -149,6 +149,7 @@ def upload_file_to_s3(file, bucket_name, filename, acl="public-read"):
 @bp.route('/users', methods=['POST'])
 def create_user():
     data = request.get_json() or {}
+
     if 'username' not in data or 'email' not in data or 'password' not in data or 'name' not in data:
         return bad_request('must include username, email, password and name fields')
     if User.query.filter_by(username=data['username']).first():
@@ -158,7 +159,7 @@ def create_user():
     user = User()
     user.from_dict(data, new_user=True)
     user.verification_code = random.randint(1000, 10000)
-    send_verification_email(user)
+    # send_verification_email(user)
     db.session.add(user)
     db.session.commit()
     response = jsonify(user.to_dict())

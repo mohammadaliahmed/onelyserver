@@ -8,6 +8,7 @@ class Config(object):
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
     #                         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://admin:mcdonalds91@onely-dev1.cm5bmcadhdl1.us-east-2.rds.amazonaws.com/onely'
+    # SQLALCHEMY_DATABASE_URI = 'mysql://root:''@localhost/onely'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
