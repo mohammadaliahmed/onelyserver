@@ -41,15 +41,17 @@ class PaginatedAPIMixin(object):
 
 
 followers = db.Table('followers',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
-)
+                     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+                     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+                     )
 
 
 class User(PaginatedAPIMixin, UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     name = db.Column(db.String(128))
+    login_type = db.Column(db.String(128))
+    social_id = db.Column(db.String(200))
     email = db.Column(db.String(120), index=True, unique=True)
     country = db.Column(db.String(128))
     phone_number = db.Column(db.String(128))
@@ -136,8 +138,9 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
         data = {
             'id': self.id,
             'username': self.username,
-
             'name': self.name,
+            'social_id': self.social_id,
+            'login_type': self.login_type,
             'country': self.country,
             'phone_number': self.phone_number,
             'birthday': self.birthday,
@@ -186,7 +189,8 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
                       'questions', 'anthem', 'bio', 'discover_location', 'location', 'height', 'hometown', 'ethnicity',
                       'job', 'company', 'education', 'religion', 'instagram', 'gender', 'looking_for',
                       'photo1', 'photo2', 'photo3', 'photo4', 'photo5', 'photo6',
-                      'favoriteSongs', 'favoriteAlbums', 'favoritePlaylists', 'favoriteArtists', 'favoriteGenres']:
+                      'favoriteSongs', 'favoriteAlbums', 'favoritePlaylists', 'favoriteArtists',
+                      'favoriteGenres','social_id', 'login_type']:
             if field in data:
                 setattr(self, field, data[field])
         if new_user and 'password' in data:
@@ -210,6 +214,21 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
         if user is None or user.token_expiration < datetime.utcnow():
             return None
         return user
+
+
+class Countries(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200))
+
+    def __repr__(self):
+        return '<Countries {}>'.format(self.name)
+
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'name': self.name
+        }
+        return data
 
 
 class Song(db.Model):
@@ -275,7 +294,8 @@ class Song(db.Model):
         return data
 
     def from_dict(self, data):
-        for field in ['song_url', 'song_title', 'song_album_artist', 'song_artist', 'song_genre', 'song_album', 'listening_location',
+        for field in ['song_url', 'song_title', 'song_album_artist', 'song_artist', 'song_genre', 'song_album',
+                      'listening_location',
                       'albumName', 'artistName', 'composerName', 'contentRating', 'discNumber', 'durationInMillis',
                       'genreNames', 'isrc', 'movementCount', 'movementName', 'movementNumber', 'name', 'releaseDate',
                       'trackNumber', 'url', 'workName']:
@@ -302,7 +322,7 @@ class Message(PaginatedAPIMixin, db.Model):
             "sender_id": self.sender_id,
             "receiver_id": self.receiver_id,
             "data": self.data,
-            "sent_at": int(float(self.sent_at.strftime('%s.%f'))*1000),
+            "sent_at": int(float(self.sent_at.strftime('%s.%f')) * 1000),
             "read": self.read
         }
         return data

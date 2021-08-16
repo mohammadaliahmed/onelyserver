@@ -168,6 +168,16 @@ def create_user():
     return response
 
 
+@bp.route('/sociallogin', methods=['POST'])
+def sociallogin():
+    data = request.get_json() or {}
+    try:
+        user = User.query.filter_by(social_id=data['social_id']).first()
+
+        return jsonify(user.to_dict())
+    except:
+        return "unauthorized"
+
 @bp.route('/users', methods=['PUT'])
 @token_auth.login_required
 def update_user():
@@ -196,7 +206,8 @@ def get_user_by_username(username):
 def search_user(username):
     page = request.args.get('page', 1, type=int)
     per_page = min(request.args.get('per_page', 10, type=int), 100)
-    data = User.to_collection_dict(User.query.filter(User.username.ilike(username+'%')), page, per_page, 'api.get_users')
+    data = User.to_collection_dict(User.query.filter(User.username.ilike(username + '%')), page, per_page,
+                                   'api.get_users')
     return jsonify(data)
 
 

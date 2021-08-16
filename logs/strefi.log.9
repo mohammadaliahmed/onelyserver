@@ -1,10 +1,35 @@
-2021-08-03 15:46:54,654 ERROR: Exception on /api/tokens [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+2021-08-09 13:20:39,140 ERROR: Exception on /api/users [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
-    return self.registry[key]
-KeyError: <greenlet.greenlet object at 0x000001BBCF171888 (otid=0x000001BBCF2743F0) current active started main>
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 732, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
 
 During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 692, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 740, in _read_bytes
+    "Lost connection to MySQL server during query (%s)" % (e,),
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)')
+
+The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
@@ -15,36 +40,59 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 161, in decorated
-    user = self.authenticate(auth, password)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 238, in authenticate
-    return self.verify_password_callback(username, client_password)
-  File "C:\xampp\htdocs\onely\app\api\auth.py", line 13, in verify_password
-    user = User.query.filter_by(username=username).first()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_sqlalchemy\__init__.py", line 552, in __get__
-    return type.query_class(mapper, session=self.sa.session())
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
-    return self.registry()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
-    return self.registry.setdefault(key, self.createfunc())
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
-    return self.class_(**local_kw)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_sqlalchemy\__init__.py", line 176, in __init__
-    bind = options.pop('bind', None) or db.engine
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_sqlalchemy\__init__.py", line 998, in engine
-    return self.get_engine()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_sqlalchemy\__init__.py", line 1017, in get_engine
-    return connector.get_engine()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_sqlalchemy\__init__.py", line 594, in get_engine
-    self._engine = rv = self._sa.create_engine(sa_url, options)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_sqlalchemy\__init__.py", line 1027, in create_engine
-    return sqlalchemy.create_engine(sa_url, **engine_opts)
-  File "<string>", line 2, in create_engine
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\deprecations.py", line 298, in warned
-    return fn(*args, **kwargs)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\create.py", line 548, in create_engine
-    dbapi = dialect_cls.dbapi(**dbapi_args)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\dialects\mysql\mysqldb.py", line 167, in dbapi
-    return __import__("MySQLdb")
-ModuleNotFoundError: No module named 'MySQLdb'
-2021-08-03 15:48:38,461 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+  File "C:\xampp\htdocs\onely\app\api\users.py", line 165, in create_user
+    response = jsonify(user.to_dict())
+  File "C:\xampp\htdocs\onely\app\models.py", line 137, in to_dict
+    'id': self.id,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 481, in __get__
+    return self.impl.get(state, dict_)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 926, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\attributes.py", line 957, in _fire_loader_callables
+    return state._load_expired(state, passive)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\state.py", line 710, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\loading.py", line 1483, in load_scalar_attributes
+    no_autoflush=no_autoflush,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\loading.py", line 411, in load_on_ident
+    execution_options=execution_options,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\loading.py", line 561, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1583, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1462, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1815, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 692, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 740, in _read_bytes
+    "Lost connection to MySQL server during query (%s)" % (e,),
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query ([WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond)')
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.name AS user_name, user.email AS user_email, user.country AS user_country, user.phone_number AS user_phone_number, user.birthday AS user_birthday, user.gender AS user_gender, user.looking_for AS user_looking_for, user.genres AS user_genres, user.artists AS user_artists, user.questions AS user_questions, user.anthem AS user_anthem, user.bio AS user_bio, user.location AS user_location, user.discover_location AS user_discover_location, user.height AS user_height, user.hometown AS user_hometown, user.ethnicity AS user_ethnicity, user.job AS user_job, user.education AS user_education, user.religion AS user_religion, user.company AS user_company, user.instagram AS user_instagram, user.password_hash AS user_password_hash, user.avatar AS user_avatar, user.photo1 AS user_photo1, user.photo2 AS user_photo2, user.photo3 AS user_photo3, user.photo4 AS user_photo4, user.photo5 AS user_photo5, user.photo6 AS user_photo6, user.`favoriteSongs` AS `user_favoriteSongs`, user.`favoriteAlbums` AS `user_favoriteAlbums`, user.`favoritePlaylists` AS `user_favoritePlaylists`, user.`favoriteArtists` AS `user_favoriteArtists`, user.`favoriteGenres` AS `user_favoriteGenres`, user.verification_code AS user_verification_code, user.verified AS user_verified, user.last_seen AS user_last_seen, user.creation_date AS user_creation_date, user.token AS user_token, user.token_expiration AS user_token_expiration 
+FROM user 
+WHERE user.id = %(pk_1)s]
+[parameters: {'pk_1': 86}]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
