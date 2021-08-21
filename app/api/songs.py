@@ -67,27 +67,28 @@ def discover():
         u = User.query.get(s.user_id).to_dict()
         if g.current_user.is_following(User.query.get(s.user_id)):
             continue
-        u_gender = u['gender'][0].lower()
-        if 'f' in user_looking_for:
-            user_looking_for += 'w'
-        if 'w' in user_looking_for:
-            user_looking_for += 'f'
-        target_looking_for = u['looking_for']
-        if 'f' in target_looking_for:
-            target_looking_for += 'w'
-        if 'w' in target_looking_for:
-            target_looking_for += 'f'
-        if u_gender in user_looking_for and user_gender in target_looking_for:
-            u['distance'] = None
-            try:
-                song_location = (float(s.listening_location.split(',')[0]), float(s.listening_location.split(',')[1]))
-                u['distance'] = haversine(user_location, song_location)
-            except Exception as e:
-                pass
-            if u['id'] is not g.current_user.id:
-                if u['id'] not in uids:
-                    users.append(u)
-                    uids.append(u['id'])
+        if u['gender'] and u['looking_for']:
+            u_gender = u['gender'][0].lower()
+            if 'f' in user_looking_for:
+                user_looking_for += 'w'
+            if 'w' in user_looking_for:
+                user_looking_for += 'f'
+            target_looking_for = u['looking_for']
+            if 'f' in target_looking_for:
+                target_looking_for += 'w'
+            if 'w' in target_looking_for:
+                target_looking_for += 'f'
+            if u_gender in user_looking_for and user_gender in target_looking_for:
+                u['distance'] = None
+                try:
+                    song_location = (float(s.listening_location.split(',')[0]), float(s.listening_location.split(',')[1]))
+                    u['distance'] = haversine(user_location, song_location)
+                except Exception as e:
+                    pass
+                if u['id'] is not g.current_user.id:
+                    if u['id'] not in uids:
+                        users.append(u)
+                        uids.append(u['id'])
 
     users.sort(key=user_distance_key)
     return jsonify({"items": users})

@@ -1,4 +1,4 @@
-2021-08-09 13:21:11,629 ERROR: Exception on /api/users [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+2021-08-09 13:26:16,955 ERROR: Exception on /api/users [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
     cursor, statement, parameters, context
@@ -20,7 +20,7 @@ Traceback (most recent call last):
     err.raise_mysql_exception(self._data)
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-pymysql.err.IntegrityError: (1062, "Duplicate entry 'salman111@gmail.comhjbguh' for key 'user.ix_user_email'")
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'hjzjzbsjdj@gmail.com' for key 'user.ix_user_email'")
 
 The above exception was the direct cause of the following exception:
 
@@ -92,8 +92,10 @@ Traceback (most recent call last):
     err.raise_mysql_exception(self._data)
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'salman111@gmail.comhjbguh' for key 'user.ix_user_email'")
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'hjzjzbsjdj@gmail.com' for key 'user.ix_user_email'")
 [SQL: INSERT INTO user (username, name, email, country, phone_number, birthday, gender, looking_for, genres, artists, questions, anthem, bio, location, discover_location, height, hometown, ethnicity, job, education, religion, company, instagram, password_hash, avatar, photo1, photo2, photo3, photo4, photo5, photo6, `favoriteSongs`, `favoriteAlbums`, `favoritePlaylists`, `favoriteArtists`, `favoriteGenres`, verification_code, verified, last_seen, creation_date, token, token_expiration) VALUES (%(username)s, %(name)s, %(email)s, %(country)s, %(phone_number)s, %(birthday)s, %(gender)s, %(looking_for)s, %(genres)s, %(artists)s, %(questions)s, %(anthem)s, %(bio)s, %(location)s, %(discover_location)s, %(height)s, %(hometown)s, %(ethnicity)s, %(job)s, %(education)s, %(religion)s, %(company)s, %(instagram)s, %(password_hash)s, %(avatar)s, %(photo1)s, %(photo2)s, %(photo3)s, %(photo4)s, %(photo5)s, %(photo6)s, %(favoriteSongs)s, %(favoriteAlbums)s, %(favoritePlaylists)s, %(favoriteArtists)s, %(favoriteGenres)s, %(verification_code)s, %(verified)s, %(last_seen)s, %(creation_date)s, %(token)s, %(token_expiration)s)]
-[parameters: {'username': 'salmanahmhvhu8ghfhjg', 'name': 'salman', 'email': 'salman111@gmail.comhjbguh', 'country': None, 'phone_number': None, 'birthday': None, 'gender': None, 'looking_for': None, 'genres': None, 'artists': None, 'questions': None, 'anthem': None, 'bio': None, 'location': None, 'discover_location': None, 'height': None, 'hometown': None, 'ethnicity': None, 'job': None, 'education': None, 'religion': None, 'company': None, 'instagram': None, 'password_hash': 'pbkdf2:sha256:260000$N72OrGAW1cFrOh4g$9578fae4f225ba3da1ffca1386b9554860b289275d4174d9980e4bc396229aac', 'avatar': None, 'photo1': None, 'photo2': None, 'photo3': None, 'photo4': None, 'photo5': None, 'photo6': None, 'favoriteSongs': None, 'favoriteAlbums': None, 'favoritePlaylists': None, 'favoriteArtists': None, 'favoriteGenres': None, 'verification_code': 3936, 'verified': 0, 'last_seen': datetime.datetime(2021, 8, 9, 8, 21, 10, 882984), 'creation_date': datetime.datetime(2021, 8, 9, 8, 21, 10, 882984), 'token': None, 'token_expiration': None}]
+[parameters: {'username': 'hshsbsbsb', 'name': 'hsisjsnsn', 'email': 'hjzjzbsjdj@gmail.com', 'country': None, 'phone_number': None, 'birthday': None, 'gender': None, 'looking_for': None, 'genres': None, 'artists': None, 'questions': None, 'anthem': None, 'bio': None, 'location': None, 'discover_location': None, 'height': None, 'hometown': None, 'ethnicity': None, 'job': None, 'education': None, 'religion': None, 'company': None, 'instagram': None, 'password_hash': 'pbkdf2:sha256:260000$nP0LeveTo2vtyRBv$dd48d869e8034f4a096d68c8f59f52b3a1c3d4f19f3ed02fb27b30f74e8a5515', 'avatar': None, 'photo1': None, 'photo2': None, 'photo3': None, 'photo4': None, 'photo5': None, 'photo6': None, 'favoriteSongs': None, 'favoriteAlbums': None, 'favoritePlaylists': None, 'favoriteArtists': None, 'favoriteGenres': None, 'verification_code': 6440, 'verified': 0, 'last_seen': datetime.datetime(2021, 8, 9, 8, 26, 16, 462915), 'creation_date': datetime.datetime(2021, 8, 9, 8, 26, 16, 462915), 'token': None, 'token_expiration': None}]
 (Background on this error at: https://sqlalche.me/e/14/gkpj)
-2021-08-09 13:25:55,200 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-09 16:10:55,257 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-09 16:11:03,198 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-10 14:10:48,430 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
