@@ -1,11 +1,4 @@
-2021-08-13 14:52:47,355 ERROR: Exception on /api/sociallogin [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "C:\xampp\htdocs\onely\app\api\users.py", line 177, in sociallogin
-    return jsonify(user.to_dict())
-AttributeError: 'NoneType' object has no attribute 'to_dict'
-
-During handling of the above exception, another exception occurred:
-
+2021-08-21 09:37:23,491 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,12 +8,102 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\api\users.py", line 179, in sociallogin
-    return "unauthorized"
-NameError: name 'nil' is not defined
-2021-08-13 14:52:58,498 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-08-13 15:11:30,333 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-08-13 15:11:31,511 ERROR: Exception on /api/sociallogin [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
+    return f(*args, **kwargs)
+  File "C:\xampp\htdocs\onely\app\api\songs.py", line 44, in discover
+    user_gender = g.current_user.gender[0].lower()
+TypeError: 'NoneType' object is not subscriptable
+2021-08-21 09:57:50,455 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
+    return f(*args, **kwargs)
+  File "C:\xampp\htdocs\onely\app\api\songs.py", line 76, in discover
+    if 'f' in target_looking_for:
+TypeError: argument of type 'NoneType' is not iterable
+2021-08-21 09:58:22,942 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-21 09:58:25,809 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
+    return f(*args, **kwargs)
+  File "C:\xampp\htdocs\onely\app\api\songs.py", line 76, in discover
+    if 'f' in target_looking_for:
+TypeError: argument of type 'NoneType' is not iterable
+2021-08-21 14:58:22,049 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
+    return f(*args, **kwargs)
+  File "C:\xampp\htdocs\onely\app\api\songs.py", line 76, in discover
+    if 'f' in target_looking_for:
+TypeError: argument of type 'NoneType' is not iterable
+2021-08-21 15:00:50,448 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-21 15:02:47,812 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-21 15:02:50,767 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
+    return f(*args, **kwargs)
+  File "C:\xampp\htdocs\onely\app\api\songs.py", line 77, in discover
+    if 'f' in target_looking_for:
+TypeError: argument of type 'NoneType' is not iterable
+2021-08-21 15:04:12,016 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-21 15:04:15,312 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
+    return f(*args, **kwargs)
+  File "C:\xampp\htdocs\onely\app\api\songs.py", line 70, in discover
+    if u['gender'] and ifu['looking_for']:
+NameError: name 'ifu' is not defined
+2021-08-21 15:04:36,114 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 18:52:30,124 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 18:53:03,889 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 18:53:08,195 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 18:57:08,447 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 18:58:15,492 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 18:59:04,398 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 18:59:59,719 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-27 19:00:30,029 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-28 10:48:34,070 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-28 10:48:41,270 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-08-28 10:48:59,695 ERROR: Exception on /admin [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -28,80 +111,6 @@ Traceback (most recent call last):
     return self.finalize_request(rv)
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
     response = self.make_response(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1699, in make_response
-    f"The view function for {request.endpoint!r} did not"
-TypeError: The view function for 'api.sociallogin' did not return a valid response. The function either returned None or ended without a return statement.
-2021-08-13 15:11:51,475 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-08-13 15:12:45,576 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-08-13 15:18:39,708 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
-    return f(*args, **kwargs)
-  File "C:\xampp\htdocs\onely\app\api\songs.py", line 44, in discover
-    user_gender = g.current_user.gender[0].lower()
-TypeError: 'NoneType' object is not subscriptable
-2021-08-13 15:18:42,250 ERROR: Exception on /api/discover [POST] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 176, in decorated
-    return f(*args, **kwargs)
-  File "C:\xampp\htdocs\onely\app\api\songs.py", line 44, in discover
-    user_gender = g.current_user.gender[0].lower()
-TypeError: 'NoneType' object is not subscriptable
-2021-08-15 16:03:01,635 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-08-15 16:16:57,363 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-08-15 16:23:54,825 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-08-15 16:25:17,232 ERROR: Exception on /api/users [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 161, in decorated
-    user = self.authenticate(auth, password)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 366, in authenticate
-    return self.verify_token_callback(token)
-  File "C:\xampp\htdocs\onely\app\api\auth.py", line 27, in verify_token
-    g.current_user = User.check_token(token) if token else None
-  File "C:\xampp\htdocs\onely\app\models.py", line 214, in check_token
-    if user is None or user.token_expiration < datetime.utcnow():
-TypeError: '<' not supported between instances of 'NoneType' and 'datetime.datetime'
-2021-08-15 16:25:33,398 ERROR: Exception on /api/users [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 161, in decorated
-    user = self.authenticate(auth, password)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 366, in authenticate
-    return self.verify_token_callback(token)
-  File "C:\xampp\htdocs\onely\app\api\auth.py", line 27, in verify_token
-    g.current_user = User.check_token(token) if token else None
-  File "C:\xampp\htdocs\onely\app\models.py", line 214, in check_token
-    if user is None or user.token_expiration < datetime.utcnow():
-TypeError: '<' not supported between instances of 'NoneType' and 'datetime.datetime'
-2021-08-15 16:26:00,804 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1728, in make_response
+    "The view function did not return a valid"
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a BaseQuery.

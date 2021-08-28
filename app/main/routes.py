@@ -1,6 +1,7 @@
 from flask import render_template
 from app.models import User
 from app.main import bp
+from flask import jsonify, request
 
 
 @bp.route('/')
@@ -8,6 +9,24 @@ from app.main import bp
 def index():
     number_of_users = User.query.count()
     return render_template('index.html', number_of_users=number_of_users)
+
+
+@bp.route('/admin')
+def admin():
+    users = User.query.order_by(User.id.desc())
+    all_users = [{'id': user.id,
+                  'name': user.name,
+                  'username': user.username,
+                  'email': user.email,
+                  'photo': user.avatar,
+                  'country': user.country,
+                  'gender': user.gender,
+                  'login_type': user.login_type,
+                  'creation_date': user.creation_date,
+                  } for user in users]
+
+    # return jsonify({"users": all_users})
+    return render_template('admin.html', all_users=all_users)
 
 
 '''
