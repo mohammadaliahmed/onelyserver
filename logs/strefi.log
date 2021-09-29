@@ -1,18 +1,4 @@
-2021-09-29 10:53:39,348 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
-    response = self.make_response(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1699, in make_response
-    f"The view function for {request.endpoint!r} did not"
-TypeError: The view function for 'main.approveRequest' did not return a valid response. The function either returned None or ended without a return statement.
-2021-09-29 10:54:10,948 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 10:56:38,633 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 10:58:48,461 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 10:58:54,259 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+2021-09-29 12:27:00,015 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -22,57 +8,83 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    liverequests()
-TypeError: 'LiveRequests' object is not callable
-2021-09-29 11:02:34,225 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:02:37,383 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    return redirect(url_for('liverequests'))
-NameError: name 'redirect' is not defined
-2021-09-29 11:06:43,922 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:06:44,393 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    return redirect(url_for('liverequests'))
-NameError: name 'url_for' is not defined
-2021-09-29 11:06:58,976 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:06:59,396 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    return redirect(url_for('liverequests'))
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 55, in liverequests
+    return render_template('liverequests.html', all_requests=all_requestss)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\xampp\htdocs\onely\app\templates\liverequests.html", line 6, in top-level template code
+    <link rel="stylesheet" href="{{ url_for('', filename='styles.css') }}">
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 338, in url_for
     return appctx.app.handle_url_build_error(error, endpoint, values)
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 326, in url_for
     endpoint, values, method=method, force_external=external
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2305, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'liverequests'. Did you mean 'main.liverequests' instead?
-2021-09-29 11:07:15,613 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:18:13,157 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:18:38,116 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+werkzeug.routing.BuildError: Could not build url for endpoint '' with values ['filename']. Did you mean 'bootstrap.static' instead?
+2021-09-29 12:27:04,452 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 55, in liverequests
+    return render_template('liverequests.html', all_requests=all_requestss)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\xampp\htdocs\onely\app\templates\liverequests.html", line 6, in top-level template code
+    <link rel="stylesheet" href="{{ url_for('', filename='styles.css') }}">
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 338, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 326, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2305, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint '' with values ['filename']. Did you mean 'bootstrap.static' instead?
+2021-09-29 12:27:33,253 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-29 12:27:45,001 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 55, in liverequests
+    return render_template('liverequests.html', all_requests=all_requestss)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\xampp\htdocs\onely\app\templates\liverequests.html", line 6, in top-level template code
+    <link rel="stylesheet" href="{{ url_for('', filename='styles.css') }}">
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 338, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 326, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2305, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint '' with values ['filename']. Did you mean 'bootstrap.static' instead?
+2021-09-29 12:28:43,204 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-29 12:32:14,940 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]

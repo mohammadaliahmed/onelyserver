@@ -1,19 +1,4 @@
-2021-09-28 14:38:46,179 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
-    res = self._query(query)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
-    db.query(q)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\connections.py", line 259, in query
-    _mysql.connection.query(self, query)
-MySQLdb._exceptions.ProgrammingError: (1146, "Table 'onely.live_requests' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
+2021-09-28 16:15:48,883 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -23,93 +8,105 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\api\users.py", line 52, in go_live_request
-    db.session.commit()
-  File "<string>", line 2, in commit
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
-    self._transaction.commit(_to_root=self.future)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
-    self._prepare_impl()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
-    self.session.flush()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
-    self._flush(objects)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
-    with_traceback=exc_tb,
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
-    flush_context.execute()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
-    rec.execute(self)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 633, in execute
-    uow,
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 247, in save_obj
-    insert,
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1222, in _emit_insert_statements
-    execution_options=execution_options,
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1583, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
-    self, multiparams, params, execution_options
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1462, in _execute_clauseelement
-    cache_hit=cache_hit,
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1815, in _execute_context
-    e, statement, parameters, cursor, context
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _handle_dbapi_exception
-    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
-    raise exception
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
-    cursor.execute(statement, parameters)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
-    res = self._query(query)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
-    db.query(q)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\connections.py", line 259, in query
-    _mysql.connection.query(self, query)
-sqlalchemy.exc.ProgrammingError: (MySQLdb._exceptions.ProgrammingError) (1146, "Table 'onely.live_requests' doesn't exist")
-[SQL: INSERT INTO live_requests (user_id, live_request, sent_at) VALUES (%s, %s, %s)]
-[parameters: (30, 'requested', datetime.datetime(2021, 9, 28, 9, 38, 46, 178458))]
-(Background on this error at: https://sqlalche.me/e/14/f405)
-2021-09-28 14:39:24,017 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 15:28:14,675 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 15:28:15,300 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 35, in liverequests
+    return jsonify(requests)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\json\__init__.py", line 348, in jsonify
+    f"{dumps(data, indent=indent, separators=separators)}\n",
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\json\__init__.py", line 129, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\json\__init__.py", line 56, in default
+    return super().default(o)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type BaseQuery is not JSON serializable
+2021-09-28 16:17:23,271 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 16:41:20,639 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 16:41:22,082 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
-    response = self.make_response(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1699, in make_response
-    f"The view function for {request.endpoint!r} did not"
-TypeError: The view function for 'api.go_live_request' did not return a valid response. The function either returned None or ended without a return statement.
-2021-09-28 15:28:46,980 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 35, in liverequests
+    requests = db.engine.execute("SELECT user.username,user.id,user.email,user.name,user.avatar, live_requests.live_request  from user, live_requests where live_requests.user_id=user.id")
+NameError: name 'db' is not defined
+2021-09-28 16:41:56,873 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 16:41:58,006 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
-    response = self.make_response(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1699, in make_response
-    f"The view function for {request.endpoint!r} did not"
-TypeError: The view function for 'api.go_live_request' did not return a valid response. The function either returned None or ended without a return statement.
-2021-09-28 15:29:04,248 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 15:29:04,991 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 44, in liverequests
+    } for request in requests]
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 44, in <listcomp>
+    } for request in requests]
+AttributeError: Could not locate column in row for column 'user_id'
+2021-09-28 16:42:42,353 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 16:46:32,518 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 16:46:34,220 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
-    response = self.make_response(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1728, in make_response
-    "The view function did not return a valid"
-TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a LiveRequests.
-2021-09-28 15:29:19,955 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 49, in liverequests
+    return render_template('liverequests.html', all_requests=all_requests)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\xampp\htdocs\onely\app\templates\liverequests.html", line 42, in top-level template code
+    <!--        <td>{{user.photo}}</td>-->
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 474, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+2021-09-28 16:47:29,442 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 16:47:30,648 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 49, in liverequests
+    return render_template('liverequests.html', all_requests=all_requests)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 150, in render_template
+    ctx.app,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\xampp\htdocs\onely\app\templates\liverequests.html", line 42, in top-level template code
+    <!--        <td>{{user.photo}}</td>-->
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\jinja2\environment.py", line 474, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+2021-09-28 16:54:09,447 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]

@@ -3,62 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Onely Server</title>
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
+
 </head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+
+</style>
 
 
 <body>
 
 
-<div class="container">
-    <div class="row">
-        <h2>Live requests from users</h2>
-        <table class="table table-bordered">
-            <tr>
-                <th>Photo</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Gender</th>
-                <th>Country</th>
-                <th>Action</th>
-            </tr>
-            <!-- For loop logic of jinja template -->
-            <tbody>
-            <tbody>
-            {% for request in all_requests %}
-            <tr>
-                <td><img src="http://3.137.168.15/api/cdn/{{request.photo}}" width="70" height="70"></td>
-                <td>{{request.name}}</td>
-                <td>{{request.username}}</td>
-                <td>{{request.email}}</td>
-                <td>{{request.gender}}</td>
-                <td>{{request.country}}</td>
-                <td>{% if request.live_request==0 %}
-                       <a href="approveRequest/{{request.id}}"> <button class="btn btn-primary" name="Approve">Approve</button></a>
-                    {% else %}
-                        <a href="unapproveRequest/{{request.id}}"> <button class="btn btn-danger" name="Approve">Un Approve</button></a>
-                    {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
+<h2>Live requests from users</h2>
+<table>
+    <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Country</th>
+        <th>Action</th>
+    </tr>
+    <!-- For loop logic of jinja template -->
+    <tbody>
+    <tbody>
+    {% for request in all_requests %}
+    <tr>
+        <td><img src="http://3.137.168.15/api/cdn/{{request.photo}}" width="70" height="70"></td>
+        <td>{{request.name}}</td>
+        <td>{{request.username}}</td>
+        <td>{{request.email}}</td>
+        <td>{{request.gender}}</td>
+        <td>{{request.country}}</td>
+        <td>{% if request.live_request==0 %}
+            <a href="approveRequest/{{request.id}}">
+                <button class="btn btn-primary" name="Approve">Approve</button>
+            </a>
+            {% else %}
+            <a href="unapproveRequest/{{request.id}}">
+                <button class="btn btn-danger" name="Approve">Un Approve</button>
+            </a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
 
 
-        </table>
-    </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+</table>
+
 </body>
 </html>

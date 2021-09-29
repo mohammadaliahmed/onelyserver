@@ -1,4 +1,4 @@
-2021-09-28 08:59:04,123 ERROR: Exception on /api/tokens [DELETE] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+2021-09-28 08:59:09,206 ERROR: Exception on /api/tokens [DELETE] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 3212, in _wrap_pool_connect
     return fn()
