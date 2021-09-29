@@ -1,7 +1,7 @@
 from app.api import bp
 from app import db, fcm, s3
 from flask import jsonify, request, url_for
-from app.models import User, FCMKey
+from app.models import User, FCMKey, LiveRequests
 from app.api.errors import bad_request
 from flask import g, abort, current_app
 from app.api.auth import token_auth
@@ -44,6 +44,18 @@ def code_verification():
         db.session.commit()
     return jsonify({'result': code == data['code']})
 
+
+@bp.route('/users/go_live_request/<int:id>', methods=['GET'])
+def go_live_request(id):
+    goLiveRequest=LiveRequests.query.filter_by(user_id=id).first()
+    if goLiveRequest is None:
+        goLiveRequest = LiveRequests(user_id=id, live_request=0)
+        db.session.add(goLiveRequest)
+        db.session.commit()
+        return jsonify("done")
+
+    else:
+        return jsonify("done else")
 
 @bp.route('/users/password_reset_request', methods=['POST'])
 def password_reset_request():
@@ -177,6 +189,7 @@ def sociallogin():
         return jsonify(user.to_dict())
     except:
         return "unauthorized"
+
 
 @bp.route('/users', methods=['PUT'])
 @token_auth.login_required

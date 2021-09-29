@@ -1,7 +1,8 @@
 from flask import render_template
-from app.models import User
+from app.models import User, LiveRequests
 from app.main import bp
-from flask import jsonify, request
+from flask import jsonify, request, redirect, url_for
+from app import db
 
 
 @bp.route('/')
@@ -27,6 +28,51 @@ def admin():
 
     # return jsonify({"users": all_users})
     return render_template('admin.html', all_users=all_users)
+
+
+@bp.route('/liverequests')
+def liverequests():
+    # requests = LiveRequests.query.order_by(LiveRequests.id.desc())
+    requests = db.engine.execute(
+        "SELECT user.username,user.id,user.email,user.name,user.country,user.avatar,user.gender, "
+        "live_requests.live_request  from user, live_requests where live_requests.user_id=user.id")
+
+    # users=User.query.filter_by(id=30).first()
+    # return user
+    all_requestss = [{
+        'id': request.id,
+        'username': request.username,
+        'photo': request.avatar,
+        'email': request.email,
+        'live_request': request.live_request,
+        'gender': request.gender,
+        'country': request.country,
+        'name': request.name,
+
+    } for request in requests]
+
+    # return jsonify({"users": all_users})
+    return render_template('liverequests.html', all_requests=all_requestss)
+
+
+@bp.route('/approveRequest/<int:userid>')
+def approveRequest(userid):
+    user = User.query.filter_by(id=userid).first()
+    liverequests = LiveRequests.query.filter_by(user_id=userid).first()
+    liverequests.live_request = 1
+    user.can_go_live = 1
+    db.session.commit()
+    return redirect(url_for('main.liverequests'))
+
+
+@bp.route('/unapproveRequest/<int:userid>')
+def unapproveRequest(userid):
+    user = User.query.filter_by(id=userid).first()
+    liverequests = LiveRequests.query.filter_by(user_id=userid).first()
+    liverequests.live_request = 0
+    user.can_go_live = 0
+    db.session.commit()
+    return redirect(url_for('main.liverequests'))
 
 
 '''

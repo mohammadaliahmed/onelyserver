@@ -90,11 +90,12 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
     verified = db.Column(db.Boolean, default=False)
     fcmkeys = db.relationship('FCMKey', backref='receiving_user', lazy='dynamic')
     songs = db.relationship('Song', backref='listened_by_user', lazy='dynamic')
-
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     creation_date = db.Column(db.DateTime, default=datetime.utcnow)
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
+    tokens = db.Column(db.Integer())
+    can_go_live = db.Column(db.Integer())
     followed = db.relationship(
         'User', secondary=followers,
         primaryjoin=(followers.c.follower_id == id),
@@ -178,7 +179,9 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
             'followers_count': self.followers.count(),
             '_links': {
                 'self': url_for('api.get_user', id=self.id)
-            }
+            },
+            'can_go_live': self.can_go_live,
+            'tokens': self.tokens,
         }
         if include_email:
             data['email'] = self.email
@@ -190,7 +193,7 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
                       'job', 'company', 'education', 'religion', 'instagram', 'gender', 'looking_for',
                       'photo1', 'photo2', 'photo3', 'photo4', 'photo5', 'photo6',
                       'favoriteSongs', 'favoriteAlbums', 'favoritePlaylists', 'favoriteArtists',
-                      'favoriteGenres','social_id', 'login_type']:
+                      'favoriteGenres', 'social_id', 'login_type']:
             if field in data:
                 setattr(self, field, data[field])
         if new_user and 'password' in data:
@@ -322,7 +325,7 @@ class Message(PaginatedAPIMixin, db.Model):
             "sender_id": self.sender_id,
             "receiver_id": self.receiver_id,
             "data": self.data,
-            "sent_at": int(float(self.sent_at.strftime('%s.%f')) * 1000),
+            "sent_at": 1631082607000,
             "read": self.read
         }
         return data
@@ -331,3 +334,12 @@ class Message(PaginatedAPIMixin, db.Model):
 class FCMKey(db.Model):
     key = db.Column(db.String(256), primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+class LiveRequests(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id=db.Column(db.Integer)
+    live_request=db.Column(db.Integer)
+    sent_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+
