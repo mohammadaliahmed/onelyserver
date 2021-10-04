@@ -172,6 +172,8 @@ def create_user():
     user.from_dict(data, new_user=True)
     user.verification_code = random.randint(1000, 10000)
     # send_verification_email(user)
+    user.can_go_live=0
+    user.tokens=0
     db.session.add(user)
     db.session.commit()
     response = jsonify(user.to_dict())
