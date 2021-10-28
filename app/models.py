@@ -132,6 +132,9 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
     def verify_account(self):
         self.verified = True
 
+    def set_tokens(self,token):
+        self.tokens = token
+
     def get_room(self, id):
         return str(min(self.id, id)) + "-" + str(max(self.id, id))
 
@@ -338,8 +341,6 @@ class FCMKey(db.Model):
 
 class LiveRequests(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id=db.Column(db.Integer)
-    live_request=db.Column(db.Integer)
+    user_id = db.Column(db.Integer)
+    live_request = db.Column(db.Integer)
     sent_at = db.Column(db.DateTime, default=datetime.utcnow)
-
-

@@ -1,4 +1,19 @@
-2021-09-28 09:09:15,933 ERROR: Exception on /api/cdn/null [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+2021-09-28 14:38:46,179 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'onely.live_requests' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,69 +23,93 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\api\cdn.py", line 23, in get_file
-    s3_object.download_fileobj(a_file)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\boto3\s3\inject.py", line 761, in object_download_fileobj
-    ExtraArgs=ExtraArgs, Callback=Callback, Config=Config)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\boto3\s3\inject.py", line 679, in download_fileobj
-    return future.result()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\futures.py", line 106, in result
-    return self._coordinator.result()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\futures.py", line 265, in result
-    raise self._exception
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\tasks.py", line 255, in _main
-    self._submit(transfer_future=transfer_future, **kwargs)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\download.py", line 343, in _submit
-    **transfer_future.meta.call_args.extra_args
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\botocore\client.py", line 386, in _api_call
-    return self._make_api_call(operation_name, kwargs)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\botocore\client.py", line 705, in _make_api_call
-    raise error_class(parsed_response, operation_name)
-botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
-2021-09-28 09:09:18,947 ERROR: Exception on /api/cdn/null [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "C:\xampp\htdocs\onely\app\api\users.py", line 52, in go_live_request
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 633, in execute
+    uow,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 247, in save_obj
+    insert,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1583, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1462, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1815, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\MySQLdb\connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+sqlalchemy.exc.ProgrammingError: (MySQLdb._exceptions.ProgrammingError) (1146, "Table 'onely.live_requests' doesn't exist")
+[SQL: INSERT INTO live_requests (user_id, live_request, sent_at) VALUES (%s, %s, %s)]
+[parameters: (30, 'requested', datetime.datetime(2021, 9, 28, 9, 38, 46, 178458))]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2021-09-28 14:39:24,017 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 15:28:14,675 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 15:28:15,300 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\api\cdn.py", line 23, in get_file
-    s3_object.download_fileobj(a_file)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\boto3\s3\inject.py", line 761, in object_download_fileobj
-    ExtraArgs=ExtraArgs, Callback=Callback, Config=Config)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\boto3\s3\inject.py", line 679, in download_fileobj
-    return future.result()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\futures.py", line 106, in result
-    return self._coordinator.result()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\futures.py", line 265, in result
-    raise self._exception
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\tasks.py", line 255, in _main
-    self._submit(transfer_future=transfer_future, **kwargs)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\s3transfer\download.py", line 343, in _submit
-    **transfer_future.meta.call_args.extra_args
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\botocore\client.py", line 386, in _api_call
-    return self._make_api_call(operation_name, kwargs)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\botocore\client.py", line 705, in _make_api_call
-    raise error_class(parsed_response, operation_name)
-botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
-2021-09-28 12:20:38,423 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 12:38:25,654 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 12:38:58,327 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 12:40:20,974 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 14:23:17,610 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 14:27:52,357 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-28 14:27:59,785 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1699, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'api.go_live_request' did not return a valid response. The function either returned None or ended without a return statement.
+2021-09-28 15:28:46,980 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-TypeError: go_live_request() missing 1 required positional argument: 'id'
-2021-09-28 14:38:44,301 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1699, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'api.go_live_request' did not return a valid response. The function either returned None or ended without a return statement.
+2021-09-28 15:29:04,248 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-09-28 15:29:04,991 ERROR: Exception on /api/users/go_live_request/30 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1728, in make_response
+    "The view function did not return a valid"
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a LiveRequests.
+2021-09-28 15:29:19,955 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]

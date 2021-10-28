@@ -1,60 +1,56 @@
-2021-09-29 10:53:39,348 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+2021-09-29 12:26:36,658 ERROR: Exception on /liverequests [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1535, in finalize_request
-    response = self.make_response(rv)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1699, in make_response
-    f"The view function for {request.endpoint!r} did not"
-TypeError: The view function for 'main.approveRequest' did not return a valid response. The function either returned None or ended without a return statement.
-2021-09-29 10:54:10,948 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 10:56:38,633 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 10:58:48,461 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 10:58:54,259 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 614, in connect
+    (self.host, self.port), self.connect_timeout, **kwargs
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    liverequests()
-TypeError: 'LiveRequests' object is not callable
-2021-09-29 11:02:34,225 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:02:37,383 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    return redirect(url_for('liverequests'))
-NameError: name 'redirect' is not defined
-2021-09-29 11:06:43,922 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:06:44,393 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
-Traceback (most recent call last):
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    return redirect(url_for('liverequests'))
-NameError: name 'url_for' is not defined
-2021-09-29 11:06:58,976 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:06:59,396 ERROR: Exception on /approveRequest/146 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 3212, in _wrap_pool_connect
+    return fn()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 307, in connect
+    return _ConnectionFairy._checkout(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 767, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 425, in checkout
+    rec = pool._do_get()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 253, in _create_connection
+    return _ConnectionRecord(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 368, in __init__
+    self.__connect()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 611, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 605, in __connect
+    connection = pool._invoke_creator(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 664, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'onely-dev1.cm5bmcadhdl1.us-east-2.rds.amazonaws.com' ([Errno 11001] getaddrinfo failed)")
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -64,20 +60,61 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "C:\xampp\htdocs\onely\app\main\routes.py", line 63, in approveRequest
-    return redirect(url_for('liverequests'))
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 338, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\helpers.py", line 326, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\werkzeug\routing.py", line 2305, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'liverequests'. Did you mean 'main.liverequests' instead?
-2021-09-29 11:07:15,613 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:18:13,157 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 11:18:38,116 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 12:22:48,235 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 12:24:02,831 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 12:24:59,160 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 12:25:57,509 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-09-29 12:26:32,534 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 37, in liverequests
+    "SELECT user.username,user.id,user.email,user.name,user.country,user.avatar,user.gender, "
+  File "<string>", line 2, in execute
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\deprecations.py", line 390, in warned
+    return fn(*args, **kwargs)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 3107, in execute
+    connection = self.connect(close_with_result=True)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 3166, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 3245, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 3216, in _wrap_pool_connect
+    e, dialect, self
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 2070, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 3212, in _wrap_pool_connect
+    return fn()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 307, in connect
+    return _ConnectionFairy._checkout(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 767, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 425, in checkout
+    rec = pool._do_get()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 253, in _create_connection
+    return _ConnectionRecord(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 368, in __init__
+    self.__connect()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 611, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\pool\base.py", line 605, in __connect
+    connection = pool._invoke_creator(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\pymysql\connections.py", line 664, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'onely-dev1.cm5bmcadhdl1.us-east-2.rds.amazonaws.com' ([Errno 11001] getaddrinfo failed)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2021-09-29 12:26:58,507 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]

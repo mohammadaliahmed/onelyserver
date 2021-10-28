@@ -47,7 +47,7 @@ def code_verification():
 
 @bp.route('/users/go_live_request/<int:id>', methods=['GET'])
 def go_live_request(id):
-    goLiveRequest=LiveRequests.query.filter_by(user_id=id).first()
+    goLiveRequest = LiveRequests.query.filter_by(user_id=id).first()
     if goLiveRequest is None:
         goLiveRequest = LiveRequests(user_id=id, live_request=0)
         db.session.add(goLiveRequest)
@@ -56,6 +56,7 @@ def go_live_request(id):
 
     else:
         return jsonify("done else")
+
 
 @bp.route('/users/password_reset_request', methods=['POST'])
 def password_reset_request():
@@ -172,8 +173,8 @@ def create_user():
     user.from_dict(data, new_user=True)
     user.verification_code = random.randint(1000, 10000)
     # send_verification_email(user)
-    user.can_go_live=0
-    user.tokens=0
+    user.can_go_live = 0
+    user.tokens = 50
     db.session.add(user)
     db.session.commit()
     response = jsonify(user.to_dict())
@@ -237,4 +238,14 @@ def add_fcmkey():
     fcmkey = FCMKey(key=data['fcmkey'], receiving_user=g.current_user)
     db.session.add(fcmkey)
     db.session.commit()
+    return jsonify({'response': 'okay'})
+
+
+@bp.route('/updateTokensInDB', methods=['POST'])
+def updateTokensInDB():
+    data = request.get_json() or {}
+    user = User.query.filter_by(id=data['id']).first()
+    user.tokens = data["tokens"]
+    db.session.commit()
+
     return jsonify({'response': 'okay'})
