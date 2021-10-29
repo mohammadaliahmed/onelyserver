@@ -1,4 +1,4 @@
-2021-10-28 15:36:29,440 ERROR: Exception on /api/users/aliahmed [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+2021-10-29 09:52:47,113 ERROR: Exception on /approveRequest/107 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
 Traceback (most recent call last):
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,33 +8,87 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 161, in decorated
-    user = self.authenticate(auth, password)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask_httpauth.py", line 366, in authenticate
-    return self.verify_token_callback(token)
-  File "C:\xampp\htdocs\onely\app\api\auth.py", line 27, in verify_token
-    g.current_user = User.check_token(token) if token else None
-  File "C:\xampp\htdocs\onely\app\models.py", line 219, in check_token
-    user = User.query.filter_by(token=token).first()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 2763, in first
-    return self.limit(1)._iter().first()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\query.py", line 2850, in _iter
-    execution_options={"_sa_orm_load_options": self.load_options},
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
-    result = conn._execute_20(statement, params or {}, execution_options)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1583, in _execute_20
-    return meth(self, args_10style, kwargs_10style, execution_options)
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
-    self, multiparams, params, execution_options
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1462, in _execute_clauseelement
-    cache_hit=cache_hit,
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 1669, in _execute_context
-    conn = self._revalidate_connection()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 560, in _revalidate_connection
-    self._invalid_transaction()
-  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\engine\base.py", line 540, in _invalid_transaction
-    code="8s2b",
-sqlalchemy.exc.PendingRollbackError: Can't reconnect until invalid transaction is rolled back. (Background on this error at: https://sqlalche.me/e/14/8s2b)
-2021-10-28 15:50:23,274 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-10-28 16:01:05,070 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
-2021-10-28 16:02:14,770 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 64, in approveRequest
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 633, in execute
+    uow,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    update,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1035, in _emit_update_statements
+    % (table.description, len(records), rows)
+sqlalchemy.orm.exc.StaleDataError: UPDATE statement on table 'live_requests' expected to update 1 row(s); 2 were matched.
+2021-10-29 09:53:18,106 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-10-29 09:53:41,678 ERROR: Exception on /approveRequest/107 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 64, in approveRequest
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 633, in execute
+    uow,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    update,
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\sqlalchemy\orm\persistence.py", line 1035, in _emit_update_statements
+    % (table.description, len(records), rows)
+sqlalchemy.orm.exc.StaleDataError: UPDATE statement on table 'live_requests' expected to update 1 row(s); 2 were matched.
+2021-10-29 09:54:14,151 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-10-29 09:55:59,647 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-10-29 10:03:15,322 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]
+2021-10-29 10:03:42,723 ERROR: Exception on /approveRequest/107 [GET] [in c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py:1455]
+Traceback (most recent call last):
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\fb\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\xampp\htdocs\onely\app\main\routes.py", line 64, in approveRequest
+    result = db.engine.execute('update user set can_go_live=1 where id=' + userid)
+TypeError: can only concatenate str (not "int") to str
+2021-10-29 10:04:57,996 INFO: Strefi startup [in C:\xampp\htdocs\onely\app\__init__.py:90]

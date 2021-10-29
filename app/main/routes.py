@@ -57,21 +57,26 @@ def liverequests():
 
 @bp.route('/approveRequest/<int:userid>')
 def approveRequest(userid):
-    user = User.query.filter_by(id=userid).first()
-    liverequests = LiveRequests.query.filter_by(user_id=userid).first()
-    liverequests.live_request = 1
-    user.can_go_live = 1
-    db.session.commit()
+    # user = User.query.filter_by(id=userid).first()
+    # liverequests = LiveRequests.query.filter_by(user_id=userid).first()
+    # liverequests.live_request = 1
+    # user.can_go_live = 1
+    result = db.engine.execute('update user set can_go_live=1 where id=' + str(userid))
+    result = db.engine.execute('update live_requests set live_request=1 where user_id=' + str(userid))
+    # db.session.commit()
     return redirect(url_for('main.liverequests'))
 
 
 @bp.route('/unapproveRequest/<int:userid>')
 def unapproveRequest(userid):
-    user = User.query.filter_by(id=userid).first()
-    liverequests = LiveRequests.query.filter_by(user_id=userid).first()
-    liverequests.live_request = 0
-    user.can_go_live = 0
-    db.session.commit()
+    # user = User.query.filter_by(id=userid).first()
+    # liverequests = LiveRequests.query.filter_by(user_id=userid).first()
+    # liverequests.live_request = 0
+    # user.can_go_live = 0
+    result = db.engine.execute('update user set can_go_live=0 where id='+str(userid))
+    result = db.engine.execute('update live_requests set live_request=0 where user_id='+str(userid))
+
+    # db.session.commit()
     return redirect(url_for('main.liverequests'))
 
 

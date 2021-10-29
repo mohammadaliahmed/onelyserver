@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="adfe2623-8351-4e01-921f-dcf6f368b03c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/strefi.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/strefi.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/strefi.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/strefi.log.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/strefi.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/strefi.log.10" afterDir="false" />
