@@ -41,62 +41,64 @@ def match():
 @token_auth.login_required
 def discover():
     data = request.get_json() or {}
-    # user_gender = g.current_user.gender[0].lower()
-    # user_looking_for = g.current_user.looking_for
-    # try:
-    #     user_location = (float(data['listening_location'].split(',')[0]), float(data['listening_location'].split(',')[1]))
-    # except Exception as e:
-    #     user_location = (0.0, 0.0)
-    # time = datetime.datetime.utcnow() - datetime.timedelta(minutes=5)
-    #
-    # q = Song.query.filter(Song.listening_time > time, Song.user_id != g.current_user.id)
-    # result = discover_hierarchy(q, data)
-    # if result is None:
-    #     time = datetime.datetime.utcnow() - datetime.timedelta(minutes=15)
-    #     q = Song.query.filter(Song.listening_time > time, Song.user_id != g.current_user.id)
-    #     result = discover_hierarchy(q, data)
-    #     if result is None:
-    #         time = datetime.datetime.utcnow() - datetime.timedelta(hours=24)
-    #         q = Song.query.filter(Song.listening_time > time, Song.user_id != g.current_user.id)
-    #         result = discover_hierarchy(q, data)
-    #         if result is None:
-    #             return jsonify({"items": []})
-    # songs = result.all()
-    # users = []
-    # uids = []
-    # for s in songs:
-    #     u = User.query.get(s.user_id).to_dict()
-    #     if g.current_user.is_following(User.query.get(s.user_id)):
-    #         continue
-    #     if u['gender'] and u['looking_for']:
-    #         u_gender = u['gender'][0].lower()
-    #         if 'f' in user_looking_for:
-    #             user_looking_for += 'w'
-    #         if 'w' in user_looking_for:
-    #             user_looking_for += 'f'
-    #         target_looking_for = u['looking_for']
-    #         if 'f' in target_looking_for:
-    #             target_looking_for += 'w'
-    #         if 'w' in target_looking_for:
-    #             target_looking_for += 'f'
-    #         if u_gender in user_looking_for and user_gender in target_looking_for:
-    #             u['distance'] = None
-    #             try:
-    #                 song_location = (float(s.listening_location.split(',')[0]), float(s.listening_location.split(',')[1]))
-    #                 u['distance'] = haversine(user_location, song_location)
-    #             except Exception as e:
-    #                 pass
-    #             if u['id'] is not g.current_user.id:
-    #                 if u['id'] not in uids:
-    #                     users.append(u)
-    #                     uids.append(u['id'])
-    #
-    # users.sort(key=user_distance_key)
-    users = User.query.all()
-    return jsonify(
-        {'items': [user.to_dict() for user in users]}
-    )
-    # return jsonify({"items": users})
+    user_gender = g.current_user.gender[0].lower()
+    user_looking_for = g.current_user.looking_for
+    try:
+        user_location = (
+        float(data['listening_location'].split(',')[0]), float(data['listening_location'].split(',')[1]))
+    except Exception as e:
+        user_location = (0.0, 0.0)
+    time = datetime.datetime.utcnow() - datetime.timedelta(minutes=5)
+
+    q = Song.query.filter(Song.listening_time > time, Song.user_id != g.current_user.id)
+    result = discover_hierarchy(q, data)
+    if result is None:
+        time = datetime.datetime.utcnow() - datetime.timedelta(minutes=15)
+        q = Song.query.filter(Song.listening_time > time, Song.user_id != g.current_user.id)
+        result = discover_hierarchy(q, data)
+        if result is None:
+            time = datetime.datetime.utcnow() - datetime.timedelta(hours=24)
+            q = Song.query.filter(Song.listening_time > time, Song.user_id != g.current_user.id)
+            result = discover_hierarchy(q, data)
+            if result is None:
+                return jsonify({"items": []})
+    songs = result.all()
+    users = []
+    uids = []
+    for s in songs:
+        u = User.query.get(s.user_id).to_dict()
+        if g.current_user.is_following(User.query.get(s.user_id)):
+            continue
+        if u['gender'] and u['looking_for']:
+            u_gender = u['gender'][0].lower()
+            if 'f' in user_looking_for:
+                user_looking_for += 'w'
+            if 'w' in user_looking_for:
+                user_looking_for += 'f'
+            target_looking_for = u['looking_for']
+            if 'f' in target_looking_for:
+                target_looking_for += 'w'
+            if 'w' in target_looking_for:
+                target_looking_for += 'f'
+            if u_gender in user_looking_for and user_gender in target_looking_for:
+                u['distance'] = None
+                try:
+                    song_location = (
+                    float(s.listening_location.split(',')[0]), float(s.listening_location.split(',')[1]))
+                    u['distance'] = haversine(user_location, song_location)
+                except Exception as e:
+                    pass
+                if u['id'] is not g.current_user.id:
+                    if u['id'] not in uids:
+                        users.append(u)
+                        uids.append(u['id'])
+
+    users.sort(key=user_distance_key)
+    return jsonify({"items": users})
+    # users = User.query.all()
+    # return jsonify(
+    #     {'items': [user.to_dict() for user in users]}
+    # )
 
 
 def notify(u, title, message):
